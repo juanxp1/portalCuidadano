@@ -1,0 +1,83 @@
+//
+// Border utilities
+//
+@import "colors";
+
+// Border settings
+$border-color:                                      #EBEDF3 !default;
+$border-width:                                      1px !default;
+
+// Border transparent
+.border-transparent {
+  border-color: transparent !important;
+}
+
+.border-radius-xs {
+  border-radius: .1rem !important;
+}
+
+.border-radius-sm {
+  border-radius: .125rem !important;
+}
+
+.border-radius-md {
+  border-radius: .375rem !important;
+}
+
+.border-radius-lg {
+  border-radius: .5rem !important;
+}
+
+.border-radius-xl {
+  border-radius: .75rem !important;
+}
+
+.border-radius-2xl {
+  border-radius: 1rem !important;
+}
+
+// Responsive borders
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .border-x#{$infix}              { border-left: $border-width solid $border-color !important; border-right: $border-width solid $border-color !important; }
+    .border-y#{$infix}              { border-top: $border-width solid $border-color !important; border-bottom: $border-width solid $border-color !important; }
+
+    .border-x#{$infix}-0            { border-left: 0 !important; border-right: 0 !important; }
+    .border-y#{$infix}-0            { border-top: 0 !important; border-bottom: 0 !important; }
+
+    @if $infix != '' {
+      .border#{$infix}            { border: $border-width solid $border-color !important; }
+      .border-top#{$infix}        { border-top: $border-width solid $border-color !important; }
+      .border-right#{$infix}      { border-right: $border-width solid $border-color !important; }
+      .border-bottom#{$infix}     { border-bottom: $border-width solid $border-color !important; }
+      .border-left#{$infix}       { border-left: $border-width solid $border-color !important; }
+
+      .border#{$infix}-0          { border: 0 !important; }
+      .border-top#{$infix}-0      { border-top: 0 !important; }
+      .border-right#{$infix}-0    { border-right: 0 !important; }
+      .border-bottom#{$infix}-0   { border-bottom: 0 !important; }
+      .border-left#{$infix}-0     { border-left: 0 !important; }
+    }
+
+    @for $i from 1 through 5 {
+      .border#{$infix}-#{$i}{
+        border-width: #{$i}px !important;
+      }
+    }
+  }
+}
+
+// Border theme colors
+@each $color in $colors {
+  $key: nth($color, 1);
+  $value: nth($color, 2);
+  @if $key != 'shades' {
+    .border-#{$key}           { border-color: map_get($value, 'base') !important; }
+    .border-top-#{$key}       { border-top-color: map_get($value, 'base') !important; }
+    .border-right-#{$key}     { border-right-color: map_get($value, 'base') !important; }
+    .border-bottom-#{$key}    { border-bottom-color: map_get($value, 'base') !important; }
+    .border-left-#{$key}      { border-left-color: map_get($value, 'base') !important; }
+  }
+}

@@ -1,0 +1,38 @@
+//
+// Print Mode
+//
+
+@media print {
+  html, body {
+    height: 80%;
+    overflow: hidden;
+    background: #FFF;
+    font-size: 9.5pt;
+  }
+  .print-content-only {
+    padding: 0 !important;
+    background: transparent !important;
+
+    .v-main,
+    .page,
+    .content,
+    .container,
+    .container--fluid {
+      background: transparent !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .v-toolbar,
+    .v-app-bar,
+    .v-breadcrumbs,
+    .v-menu__content,
+    .v-navigation-drawer,
+    .v-snack,
+    .v-btn,
+    .tawk-min-container,
+    .v-footer{
+      display: none !important;
+    }
+  }
+}

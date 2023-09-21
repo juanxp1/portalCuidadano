@@ -1,0 +1,12 @@
+@import '~vuetify/src/styles/tools/index';
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @for $opacity from 1 through 100 {
+      .opacity#{$infix}-#{$opacity} {
+        opacity: $opacity / 100 !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+    <ShortName>Portal Ciudadano</ShortName>
+    <Description>Portal Ciudadano - IDRD</Description>
+    <InputEncoding>UTF-8</InputEncoding>
+    <Image width="16" height="16" type="image/x-icon">https://portalciudadano.idrd.gov.co/favicon.ico</Image>
+    <Url type="text/html" method="get" template="https://portalciudadano.idrd.gov.co/parques/buscar?q={search_term_string}"/>
+</OpenSearchDescription>
